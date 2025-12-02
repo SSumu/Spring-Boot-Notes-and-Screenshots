@@ -1,0 +1,67 @@
+1. Start a new spring project:-
+   website : spring.io.start :- Spring Initializr website
+
+   To create Spring project from Spring Initializr, it requires some information from us related to project.
+   Project: After project was created from the NetBeans or IntelliJ IDEA, it gives us a jar file which it is the build of the project. That build perform which the user needs. That build is the final output of the project. To take that build, Spring Initializr gives us two mechanisms which are Maven and Gradle. Both Maven and Gradle have no big difference and both are used in the Software Industry. After project was crated, we do not open it form the NetBeans or IntelliJ IDEA. We open the project by double clicking the jar file.
+
+   Language: Java
+   
+   Spring Boot: The lowest version because the third-parties may not work in the new versions.But there is no big difference.
+
+   Project Metadata
+	    
+	    Group: Domain. If there are further company names, we can put it also in here. (e.g.:- com.facebook :- This is actually a convention.) We can give any name for domain but typically it is given a company name or domain name.
+	 Artifact: Project name (point-of-sale)
+	     Name: Project name (point-of-sale)
+      Description: Description about the project
+     Package name: Package is created for the project. It was created in the format com.springbootacademy.point-of-sale
+
+   Packaging: There are two formats of project build formats. Those are Jar and War. We take the Jar format. But these formats are not important to us. Here we take this as a Jar file. Final output of the project is build file in Jar format or War format. We open that file by double clicking on it.
+
+   Java: Java version. We use Java 17 version.
+
+   Dependencies: Spring Boot has introduced a concept as Dependency. Dependency give us to add the things(Dependencies relevant to the project) which we want in the project. Dependencies create the project environment.
+		Spring Web: Container, Web and Servlet are added from this.
+		Spring Data JPA: This includes SQL,Java Persistence API and Hibernate.
+		MySQL Driver: Data Source
+	These three dependencies are required us only to run a project. This is the initialize state and we can put dependencies which we want at this state. But more will have to be added as the project progress so there's a way to do that.
+
+When you first open Spring Boot project, it creates the .m2 file in your local folder of sadee folder in the path C:\Users\sadee. As this is the first time, it downloads from the internet. If you put the same thing, same version to the project, it takes the local repository.
+
+.idea and .mvn folder : Nothing has to do with these folders from the Spring Boot side. The configurations have automatically generated because we have given it at the project creation.
+
+.gitignore : To ignore unnecessary folders and files when uploading a project to the git.
+
+The most important file in a Spring Boot project is pom.xml. It is the heart of a Spring Boot project.
+
+in that pom.xml file:-
+If we want to change the java version we can simply write the version there that we want inside the <java.version></java.version>. After that click the m button for every changes in that pom.xml file.
+
+<artifactId>spring-boot-starter-data-jpa</artifactId> :- There is a specialty in Spring Boot in here which is they introduce dependencies as starter. So there is not only one dependency but also there is a collection of several dependencies inside in it.
+
+Added Dependencies at the project creation are put in to pom.xml file.
+
+To add further dependencies to the project Spring has introduced an official site no one use it. There is a third party library which is mvn repository or Maven Repository and all users are use it to add more dependencies.
+If we want to easily find a dependency, we can go to google search engine and type mvn followed by the dependency name. In this way first result will be the relevant dependency.
+We download the MySQL Connector Java from Maven Repository. There are many versions of it but typically there it does not choose the upper and newer upgraded versions. It is better to choose from middle and mostly used version.
+Any dependency is added from the Spring Initializr puts into the pom.xml file. <dependencies><dependency></dependency></dependencies> part is the important part in the pom.xml file.
+
+In the project structure,
+src/test :- these folders are for testing purposes.
+src/main/java/com.springbootacademy.pointofsale/PointOfSaleApplication :- com.springbootacademy.pointofsale :- This is the package. PointOfSaleApplication :- This is the main class.
+
+When the frontend and backend are hosted on the server, both of them are gotten links relevant to them. The link in the backend calls a some method inside the fronted.
+When the frontend sends the data to the backend through the link of the backend, those data are sent to the database through the relevant part of the backend. Those data goes to the backend through http requests(post, get, put, delete).
+Layered architecture means bringing data from layer to layer. Layered architecture has built with OOP concepts.
+Requests come to the servlet first before they go to the controllers. After all the requests are gathered in the servlet, Request Mapping in the Handler Mapping in Spring is used in the controllers which helps to send the relevant request to the relevant controller. The request first comes to the servlet and then the servlet passes it to the correct controller.
+In the layered architecture servlet passes the data to the controllers then the controller passes the data to the services then the services passes the data to the repo(Just like Dao in Java) and lastly repo passes those data to the database. So there are three layers in the layered architecture which are controller, service and repo.
+
+We have to code separately in the frontend how to send http requests.
+
+After every modification in the project, Rerun the project.
+
+http://localhost:8081/api/v1/test  :- This is the path of TestController.
+If the database is on the remote server, that server's unique link must be applied instead of localhost:8081 in the above link. So we call a link like this from the frontend.
+We must give the port number in the RDBMS or in the DBMS.
+
+Controller is a one layer in the layered architecture. In the layered architecture, the data flows from controller to service, and from service to repo in the following order. These are the 3 main layers in the layered architecture. However, there are more extras coming in here and there. Other layers are entity and dto.

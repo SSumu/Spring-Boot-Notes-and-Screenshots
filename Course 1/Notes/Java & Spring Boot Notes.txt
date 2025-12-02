@@ -1,0 +1,78 @@
+Bean
+1.java bean
+2.spring bean
+
+1. Java bean
+An object is created by following the Java bean spec.
+
+qualities of Java bean
+i. encapsulation (getters setters) - Properties are encapsulated.
+ii. allargs constructor
+iii. noargs constructor
+iv. property names camelCase (studentAddress, String myAppDetails)
+
+2. Spring bean
+Pojo (plain old java object)
+Spring bean is a Pojo. Pojo is an object was created by a class which was not extended and it was created by any framework extension. This is actually an interface.
+
+There are two ways to configure the container in a spring bean (spring).
+a. use XML format
+b. use Annotation
+
+Annotation is a way of giving an additional information to a class. Annotation is a separate file.
+
+The way how spring bean should be put into the container is defined through a configuration class. Configuration class is necessarily having a Configuration annotation. Configuration class is a place where it tells the way how a bean should be put into a container.
+We always bother the container in a spring project. We always work with beans in the spring project. We always put the beans into the container. We put everything into the container. But container cannot access the bean directly.
+
+Spring project must has at least one configuration class.
+If a place has a component annotation, then it is a bean. A class is defined as a bean by putting the component annotation. Component annotation uses to apply the metadata related to the component to the class.
+
+When the Component annotation is put above the class, then it is identified as a BEAN or a POJO. That BEAN or POJO puts into the container.
+It is prohibited to create objects in Spring like the way we create it before.
+After running the project and as soon as the component annotation is added, and the class object is stored in the container.
+When we require an object of a class from the container, it returns the object was created and kept by the class which is in the container that just like singleton design pattern.
+We use component and component scan annotations to put the class into the container.
+The function of the ComponentScan annotation is that to scan the classes with Component annotation (Beans) in the project through the configuration class and put those classes as objects into the container when the project is running.
+Ids are generated for every beans by the container. By default that id is the name of the class. Otherwise we can give bean id which we want like this. Component() :- Inside this brackets, we can give any name for id.
+When putting this process, a life cycle is happened. That is bean life cycle or the life cycle methods.
+
+When we want to use an object to access another class, we bring the relevant object from container by applying the @Autowired.
+It is written like this:- private Item item;  Item is the type and  item is the object. So this creates the item object. So the object in the container inject to the Item class directly. So there is no dependency between CustomerController and item. The reason for this is that item object of the Item class is in the container so there is no thightly coupled dependency with tightly coupled directly between the CustomerController class and the Item class.
+Dependency Injection is the act of injecting a dependency from somewhere else into a class using @Autowired. Mostly asking question in interviews.
+
+What is Dependency Injection?
+In Spring, we use a container. We define the beans as object beans which we needed in the container. Dependency Injection happens in a similar way to the singleton design pattern. As soon as the project is run, the things defined as beans are placed in the container as objects. After that when we need those objects in a class, we request those from the container by using the @Autowired. Then it will always return the same object back and we do not create many objects, even if we request it several times. The act of we inject that dependency or the object into the class is called Dependency Injection.
+
+DI methods
+
+1. Property injection
+2. Constructor injection
+3. Setter method injection
+4. Interface
+
+Servlet handles the requests and responses in the web application.
+
+Spring web MVC
+When someone sent one or several requests, those requests are taken into the servlet. After that those requests are sent to the relevant locations by the servlet. Sending the requests to the relevant locations is called Dispatching and those relevant locations are called as controllers.
+
+When servlet received the requests, then it sends the relevant requests to relevant controllers through handler mappings. The process of sending requests received by a servlet to controllers professionally called dispatching. When servlet dispatches the requests to the controllers, request mapping in the handler mapping is used to choose the correct controller.
+
+Restful service is this servlet story. In that, actually what happens that project's frontend and backend are at two places. Frontend is at the outside of the project and not inside the backend project in restful service. Only the services or methods are in the backend project. When a request was received, return the values which frontend needs. In this way, if we return that value from backend to frontend, if we return through http requests, then we called it as a rest api or a restful service.
+Frontend and backend are at two places. The request was received to the backend through http request and if it can send values we returned from the backend, then it is called as rest api or restful service or resource oriented architecture or restful architecture.
+
+Data Access/Integration (Database part)
+JDBC = Java Database Connectivity : But there it do not use.
+Spring has introduced a facility for this function which is Spring Data JPA. This is to perform the data access part in spring.
+JPA means a Java Persistance API.
+Java Persistance API cannot do the data accessing part solely. So it needs Hibernate as a vendor. Hibernate is an ORM tool which MySQL and Java connected together and do the work from Java code. So we can map objects in the Java code.
+
+hibernate - two parts
+hibernate native api
+jpa
+
+hibernate is much more complex. As the complexity of Hibernate, Spring has introduced the Spring Data JPA.
+
+Data access methods
+1. JDBC
+2. ORM tool
+3. Spring Data JPA - Very simple and easy to use

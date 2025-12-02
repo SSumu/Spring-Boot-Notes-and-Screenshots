@@ -1,0 +1,106 @@
+1. We create the environment of the project from the spring initializr. We include the necessary things to the Spring Boot project.
+2. Dependencies are like the heart of the Spring Boot project.
+3. Jar or War file is built by the Project type ( Gradle build or Maven build ). Only the XML format is different in the Maven and Gradle.
+4. Choose the lowest version of the Spring Boot.
+5. Project Metadata
+	   Group: com.springbootacademy.batch7
+	Artifact: pos
+	    Name: pos
+     Description: Pos System Of Batch 7
+    Package name: com.springbootacademy.batch7.pos
+       Packaging: War 
+   Configuration: Properties
+	    Java: 17
+
+	Artifact :- Name of the project.
+	Packaging :- War from last Maven build. Packaging means the Spring Boot project creates a Jar or War file from the IntellijIdea to open without the IntellijIdea. After the file was created, that file must be opened without the IntellijIdea by double clicking that Jar or War file. After the Jar or War file was created, it was hosted in the server as the backend. So it must be accessed from anywhere by a frontend. That Jar or War file is the final file and it is done by Maven. War or Jar file package the environment is given by the IntellijIdea to run the Spring Boot project file.
+
+	Configuration :- Properties by default. This is not in the video.
+	Java :- 17 in this project but in the video it is 8. Choose the lowest version as much as possible.
+
+Spring Boot is the module of the Spring framework. Configuration part in the Spring framework has been simplified and reduced a lot in the Spring Boot module. In the Spring Boot, business logic is focused. Spring Boot tells us that it can create the environment and we must focus on the business logic.
+
+Dependencies:-
+	Spring Web: This creates a RESTful web environment automatically. This gives an embedded server which is Apache Tomcat container(server).
+	Spring Data JPA: This gives the Hibernate as a vendor. So no need to do separate configuration part for Hibernate. This is the JPA or the queries. This gives the JPA library or the repository.
+	MySQL Driver: The path for the data access or the data source which is done by JDBC which is given by this. This creates the connection between MySQL and Java.
+
+Initially we add these 3 dependencies. Then we add more dependencies in another way.
+
+RESTful: Client Server architecture. After a request comes in from the frontend, it is taken in, a corresponding response is generated and then given to the frontend.
+
+Normally, in MySQL, if we need to save data to the database, we have to write a query. But in the Spring Boot which we do not write queries. For that we use JPA in Spring Boot. There are predefined queries inside the JPA. But it is there as a method and not as a query. Spring Data JPA generates the method we use as a query.
+
+We can create and run a project with only the dependency of Spring web. That web environment is created. But to put data into the database and link database to the project, we need Spring Data JPA and MySQL Driver. The process of taking a request from the frontend into the backend and put it into the database can be done using these 3 dependencies.
+
+The .m2 ( C:\Users\sadee\.m2 ) folder is where the dependencies related to the repository are placed.
+When the dependencies are downloaded to the project, it first checks those dependencies in the local repository in the .m2 folder. If the dependency is there, apply it to the project from this local path. If we take a dependency has not used previously to the project which means a new dependency, that dependency is first downloaded into this local repository and then it applies to the project from this local path ( From the local repository ).
+
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-17T12:19:06.208+05:30 ERROR 12808 --- [pos] [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+
+Process finished with exit code 1
+
+The above error says that:-
+	1. Even the database environment has been created, there is no database and
+	2. Even the Hibernate has been created as a vendor, there is no Dialect. The Dialect should be injected, but it hasn't injected.
+
+There is no configuration and we have to give only a little information. We should give what is the database and Hibernate Dialect. There is a package called resources which includes the application.properties. We should give all the additional information of the project in this application.properties.
+
+To check batch7pos database is created, we can do it using the database option in the IntellijIdea.
+Database > + icon with arrow > Data Source > Data Sources and Drivers
+After that there is a field named Database. We can directly connect by typing the database name of batch7pos in the database field. Otherwise we can click apply and then OK. After the OK button is clicked, it creates the database.
+
+When the InterSystems [demo] was selected, click the Query Consoles button. Then click Default Query Console. Then you can succeed the MySQL queries.
+Then type show databases; in the console and click the Execute button or press ctrl + enter and it will show all the existing databases. Then type create database batch7pos; show database; use batch7pos;.
+Typically we have to click the Test Connection if the Drivers in the clouds like AWS or RDS to check whether there are communication errors in the Data Sources and Drivers. Apply only the result is Succeeded. It anyway connects if it is localhost.
+
+Request URL: http://localhost:8080/notices :- http://localhost:8080/notices :- This is called as an end-point.
+Unique end-points related to requirements of the frontend which is matched by the names of the link in the end-pont must be correctly created and the data which frontend needs must be sent by the backend. So these data are come as JSON through HTTP a request.
+
+When you create a database instance in the cloud service like AWS or something else, you have to give the end-point which that cloud instance gives to you as the host in the database in the IntellijIdea and then click the Test connection to check status of the database connection. If it is succeeded, database connection to your project is successful.
+
+Layered Architecture:-
+Firstly the code comes to the controller layer in the backend to see it to us. We see request coming in. But before the request comes to the controller, it comes to the servlet which is on top of the web environment. Servlets are used to handle the requests and responses. There is a layer on top of controller which is named as front controller but we called it as Dispatcher Serverlet. There is a layer on top of the Dispatcher Serverlet name called web xml. So the request comes to the web xml and those data will be given to the Dispatcher Serverlet. Then those request are sent to the controllers.
+Request goes to the service layer after the controller layer.
+
+But even we send the request to service layer, we have to loosely couple the tightly coupled ones. Tightly coupled means change of the method in the one class affect the another class which is coupled with that class. To loosely couple the controller class and service class, there it brings an interface as an agreement. That interface is Service interface. Service impl class is implemented by the Service interface.
+
+In Java, if a class is implemented by an interface, there are methods without a body ( methods without implementation ) which must be definitely implemented in the Service class. Those methods must be overridden in Service class because the Service interface is implemented by the Service class. Otherwise there are errors in the Service class.
+If the name of the method in the Service class is changed, there are errors that saying to override the methods in the Service interface in the Service class.
+
+Finally the Repository / Dao layer. This is the data access part. This includes part which transact with the database. Service class layer send the data to the Repository / Dao layer. Then those data send to the database with the query from Repository / Dao layer. Then take relevant data from the database to the backend.
+
+There are further layers related to this architecture which are called Entity and DTO. Entity means our database table. We do not write queries to create databases. Entity means a data model. If we consider customer, a thing to gather qualities like like name, address of a person. We call this as a POJO ( Plain Old Java Object ).
+DTO is a Data Transfer Object.
+Both Entity and DTO have the same fields.
+When the customer comes to save the data in the sending request, here this data comes in a DTO from frontend. Frontend must has the DTO equal to the DTO in the Backend. Controller should catch a dto is equal from the parameters of the incoming dto from the frontend. After that data goes among Service through DTO. From the Controller to the Service, the data flow passes data in DTOs.
+But data cannot be passed between Service class layer and Repository / Dao layer in DTOs. Data pass between these layers in entities. The reason for this is that we create tables and other things in the database using this entity class.
+If you want to maintain a connection between the repository / Dao and the database, you can't communicate with the dto because the data types are different. Database is created using entities. That's why you use entities.
+
+These are the layers in the data flow and there are more layers.
+
+Layered architecture is built by adding things to the MVC architecture. In industry, there it use layered architecture. Layered architecture is when more things are added to MVC architecture.
+
+Firstly we have to define what the entities are. Entity is a representation of the database table.
+
+So the above scenario is the layered architecture.
