@@ -104,3 +104,7 @@ Layered architecture is built by adding things to the MVC architecture. In indus
 Firstly we have to define what the entities are. Entity is a representation of the database table.
 
 So the above scenario is the layered architecture.
+
+To search a dependency in google, first type mvn and type dependency name:- mvn dependency_name
+
+If you do a change in the pom.xml file, you have to click the m button in the upper right corner or Reload All Maven Projects in the curved arrows button.
