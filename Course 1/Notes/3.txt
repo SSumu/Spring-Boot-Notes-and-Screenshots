@@ -108,3 +108,17 @@ So the above scenario is the layered architecture.
 To search a dependency in google, first type mvn and type dependency name:- mvn dependency_name
 
 If you do a change in the pom.xml file, you have to click the m button in the upper right corner or Reload All Maven Projects in the curved arrows button.
+
+Encapsulation is about keeping our data private and protected from being accessed by others. Instead of giving direct access, we only allow access to what we need through getters and setters.
+
+When creating an entity class, constructor must be created. We definitely create two things called no arguments constructor and all arguments constructor.
+
+Constructor is a method has no return type and it is created in the class name.
+
+We can get the Generate dialog box by pressing Alt + Insert keys. In that dialog box we can select all by clicking with the shift up to the relevant field. To get this Generate window menu > Generate...  .
+
+Argument is a field of a class.
+
+All letters of the package names must be simple.
+
+If there is an Entity, there necessarily must a DTO in that Entity's name. (e.g.:- If the entity is Customer, DTO is CustomerDTO)
