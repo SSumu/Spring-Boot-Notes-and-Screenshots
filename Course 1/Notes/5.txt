@@ -1,0 +1,13 @@
+1. Swagger is an API testing tool. So we do not need to depend on Postman.
+2. API means a backend.
+3. So we need to test the API by applying the data.
+4. To install Swagger we have to install two dependencies. Both dependencies are in the Swaggerfox. One dependency is SpringFox Swagger2. Another one is SpringFox Swagger UI.
+5. As those are third-party dependencies, we have to write a configuration part to put these dependencies as a bean into the container.
+6. So another package is created but this not related to our dataflow. This package related to the configuration part. That package is config package. If there are any configurations, those configurations can be put into config package. So we create a class in that name as SwaggerConfig. If this is a configuration class, we have to define as @Configuration at the top of the class.
+7. Docket class comes from Swaggerfox dependencies. So it tells us to put the main class of the Docket into the container. To use us at the time when we want.
+8. New SpringBoot versions have issues because even the version is new, third-party dependencies will not support for those new versions. Those new versions have still not been built corresponding to those third-party dependencies.
+9. 3.4.11 is my current Spring Boot version. 3.4.7 is my new Spring Boot version.
+10. http://localhost:8090/swagger-ui.html :- This code is the URL to use springdoc to get the frontend. When we typed and entered this URL in the address bar in the browser, it gives us the UI of the frontend.
+11. We can see the methods that we have created in the controller. When we click the method the method, we can see the data in the database inside the method.
+12. When I click Try it out, it becomes editable.
+13. In the video it shows that {} inside the "contactNumber":[] but in my UI it is "string". To put contact numbers, we have to delete the {} but in my UI it is "string".
