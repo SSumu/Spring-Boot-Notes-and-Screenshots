@@ -1,0 +1,12 @@
+1. It creates the code structure neatly if the key combination of Ctrl + Alt + L are pressed.
+2. There is a big advantage of using Lombok is that it adjust the remaining files if we add, delete or update the fields in the tables in the entities.
+3. There it cannot has several methods with the same name and same parameters. It gives us errors.
+4. Modern way is using Lombok.
+5. After the Third-party dependency is added, we need to manually put it into the bean.
+6. So we need to create a class in the config package to configure the ModelMapper.
+7. Both DTO and Entity must have the same names to work from Mappers. Because it requires to map both DTO and Entity.
+8. In Spring, All the tables are counted together. Tables are not counted separately. When the rows of one table are ended with an ID number, then the next count number will be taken for the next request to this.
+9. If a row in a table was deleted, the ID of that row will not be given to that place.
+10. But if we need ID and activeState?
+11. response folder for the responses given by ItemSaveRequestDTO.java.
+12. We create customize methods when we use mapstruct.
