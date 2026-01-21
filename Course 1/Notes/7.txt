@@ -1,0 +1,11 @@
+1. Response Entity :- This sends a standard response to the front-end for the request. This is a class.
+2. For the standard response, built-in data types are not used.
+3. In a standard response, there are three parts which are code, message and object.
+4. T in the constructors in the ResponseEntity class is generics type. T body means generic body.
+5. Exception handling is done in the service. It is not done in the controller.
+6. Code can be formatted by pressing Ctrl+Alt+L. But it does not remove the unwanted spaces. But it is a good practice that removing the unwanted spaces.
+7. @ResponseBody converts the Java file into the JSON file and send it.
+8. We can create exception classes as we like.
+9. Pagination is loading the data part by part or page by page.
+10. 0 means the first 5(any count but 5 according to the video) data in the list in a page. That means the first page.
+11. Validation dependency is needed to add validation annotations like @Max.
