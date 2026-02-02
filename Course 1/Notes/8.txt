@@ -1,0 +1,12 @@
+1. Ctrl + D :- To get a copy of a codeline below to that codeline.
+2. Keywords cannot be used in the Spring framework. We cannot create table from the name order. Because order is a keyword in the Spring framework.
+3. Use Baeldung site to study the relationships.
+4. In a ManyToMany Relationship, there is a associate entity.
+5. It is better to select only the database and tables you are using otherwise it will not be correctly refreshed.
+6. We must put all the data into the request dto.
+7. Swagger shows the controllers have been created in the controller.
+8. The name can be the repo or the repository.
+9. 💡 Key Takeaway (Remember this forever 😄)     :- This detail from the ChatGPT.
+	Entities = Database
+	DTOs = API / Swagger
+10. Mapped OrderDetails' data cannot be null. The data in OrderDetails must have values.
