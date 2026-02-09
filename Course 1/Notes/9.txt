@@ -1,0 +1,3 @@
+1. Filtering with a join query means taking only the required fields.
+2. Requirement:- I want to directly get the order_date and total from the orders table and the corresponding customer_name, customer_address, and contact_numbers from the customer table.
+3. We are sending the status of all the tables. We are requesting only the required fields from all the tables into a separate table (E.g. order_date and total from the orders table). I only want to know about the relevant person for the orders. If I go to the customer table, I want to get only the relevant details of the customer and not get the unnecessary fields.
