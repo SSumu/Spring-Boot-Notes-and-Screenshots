@@ -1,0 +1,17 @@
+1. Security is a Non-functional requirement. That means client do not ask us to add the security to his or her system. But we need to know that security must be applied to his or her system.
+
+Non-functional requirement :- Requirements that are not related to the system (Requirements that are not related to the coding side of the system). Other additional functionalities except to the system functionalities like coding standards, performances, security etc.
+
+2. To apply the security, we want to add the starter security dependency.
+
+3. After adding the starter-security dependency, when you run the project, a password will be generated in the Run window.
+
+4. After security is applied, it expects an authorization header in the Postman.
+
+5. The generated password in the video, even if it is in small parts, will still return a response when given to Postman. But when I gave the generated password to Postman, it did not give a response.
+
+6. We create a class called ProjectSecurityConfig in the project which has security. It means security configurations of the project.
+
+7. Both AccountController and LoanController are needed to be authenticated. Because those can only be accessed by the account owner and no one else can be accessed to that account. But the NoticeController can be accessed to anyone because it is common to everyone so it does not require authentication. So both AccountController and LoanController needs a security.
+
+8. We can write any logic we want to make this an authenticated user, inside this authentication provider.
