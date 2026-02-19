@@ -1,0 +1,5 @@
+1. model package is the entity package.
+2. It can also put the name in the JSON body of Postman.
+3. The id is auto generated but a fake id is sent to match the User model.
+4. 403 Forbidden means Postman does not know about a method called register. That means we cannot send them as we want.
+5. If we want to send it, we need to inform the requestMatchers() in http.authorizeRequest() in ProjectSecurityConfig about it. We need to tell requestMatchers() in http.authorizeRequest() in ProjectSecurityConfig to grant permission for /api/v1/user/register.
