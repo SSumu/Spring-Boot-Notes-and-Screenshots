@@ -1,0 +1,27 @@
+1. The 403 Forbidden error means that the user is not authorized.
+
+2. The problem here is that Spring security has given us protection against default security attacks. The default ones come from it. It has given protection against things like csrf() cors(). Then there is the csrf(). That means cross site request forgery. That means something like this can happen with a request coming from a different origin. That means we can avoid this error this way.
+
+3. Spring by default gives us protection for the project.
+
+4. In this csrf protection, Spring security only blocks requests like POST, PUT, and DELETE. That means there is nothing wrong with requests or GET requests that change anything in the database. The csrf protection actually only applies to requests like POST, PUT, and DELETE.
+
+5. Disabling csrf() avoids the problem. It disables the protection provided by Spring security.
+
+6. csrf() stands for cross site request forgery. csrf() is a security attack that hackers use. A technique. It's actually an attack that hackers do.
+
+7. Use csrf tokens to protect against csrf attackes.
+
+8. This token is then unique for each end-user session and consists of a large number of random values.
+
+9. csrf is usually disabled. The reason is that we use a better technique than this, and we know these basic things. JWT Tokens are used. That is why csrf tokens are not usually used.
+
+10. It provides protection for data coming from another origin by requiring a token. Then we do not need it. We use a better technique called JWT ( JSON Web Token ).
+
+11. To log in, we definitely need an authentication provider. We need authentication. That means whether the Username and Password are correct. There can be many authentication providers.
+
+12. When sending data from Postman, the Username and Password are sent in the Authorization field under Basic Auth. Then, the authentication object in the Authorization Headers that comes with the request is assigned to the authentication reference of the authenticate method. The things required for authentication are put in the authentication reference. We do not have to do anything about it. When the request comes in, it automatically gets it.
+
+13. If the user does not have a cookie in the browser history or if there is no authentication, the browser will send the user directly to the login page.
+
+14. A filter is what else needs to happen while this is running. If something else needs to happen while authentication is happening, we write that in a filter.
