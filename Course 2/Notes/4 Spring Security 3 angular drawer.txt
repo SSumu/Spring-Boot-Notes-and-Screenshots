@@ -1,0 +1,119 @@
+1. We need to secure the my-account end-point more. That is, we want to allow access to this my-account end-point only to admin users.
+
+2. In this spring security, this role is not taken like this, but it is shown like this in the database. It matches with something else. This is a standard. These roles are stored in the database with a prefix.
+
+3. ROLE_admin: This is the standard way that spring security says to store roles in the database. Usually, admin is also capitalized here. That is, it should be stored in the database as ROLE_ADMIN.
+
+4. This prefix can be changed if necessary. This requires a bean, but it is not necessary.
+
+5. If necessary, we can also add it to the role in the database. Otherwise, we can write the role here in simple characters and create it within the code.
+
+6. We can implement security at the method level. That means we can apply security to methods as well. Method level security means only grant access to this role if it exists.
+
+++++++++++++++++++++++++++ Angular ++++++++++++++++++++++++
+
+7. Angular installation command: npm install -g @angular/cli
+
+8. Command to check the Angular version: ng version
+
+9. Files in the src folder in an Angular project:
+	i. index.html : This is what is rendered to the browser. This is the file that will be rendered to the browser.
+			<app-root> means that components that are added to the body of index.html elsewhere in the app are 			rendered by <app-root></app-root>. <app-root></app-root> is what we call a selector. Here is the <app-			root> from this selector. app-root is app.html. The selector of app.html is app-root. After calling the 			app-root selector like this, the html code in app.html goes to <app-root></app-root> in index.html. It 			is called by <app-root></app-root> in index.html.
+
+	ii. app.ts    : This is the root component of all components in the project.
+
+	iii. app.module.ts : This is the module that has app.ts declared. That means app.ts is declared in this file.
+
+		* Then the Angular framework uses a modular architecture. The concept of modules is widely used in JS 			  ( JavaScript ).
+
+		* Latest versions (Angular 17+): New projects are "standalone" by default. Components, directives, and pipes 		  can import their own dependencies directly, removing the need for a central module file. The application is 		  bootstrapped using the bootstrapApplication function in main.ts, which takes the root standalone component 		  (AppComponent) and an application configuration (app.config.ts).
+
+10. An Angular application is a collection of many components.
+
+11. Every component is definitely a member of a module. Then every component is declared inside a module.
+
+12. When you take a component, there is the app.html file. There is the scss file. We do not need the app.spec.ts file. It is the test file ( app.spec.ts ). We can delete it. Then there is the app.ts. This is actually the controller. We write a lot of logics, functions, TypeScript Codes in the controller, and here is this (app.ts) where the TypeScript codes are written. Then you can see that there is an @Component annotation inside the app.ts. So, using that, html and scss files related to this ts (TypeScript) file have been defined inside it. That means, here the html file related to this controller is this app.html. The scss file related to this controller is this app.scss. For this, the html file has been introduced as app.html for templateUrl and the scss file as app.scss for styleUrl inside the app.ts file. The selector is the app-root. Here, you can take it( app-root ) anywhere and use it with this name ( app-root ).
+
+12. Command to run the Angular application: ng serve    or otherwise click the play button in the Intellij Idea.
+
+13. Angular slows down the computer after running a few servers. It is a bit heavier than Spring Boot.
+
+14. When the Angular application runs, it executes the codes in the Angular app component.
+
+15. When the Angular application is run, the browser renders index.html.
+
+16. When Ctrl + Click on the app-root, it go to the controller in the app-root. That means it go to the app.ts which is the controller of the app-root.
+
+17. app.ts is usually called ts.
+
+18. Ctrl + Click to go into any component.
+
+19. The codes in app.html are what run in the browser.
+
+20. The codes in app.html are what run in the browser.
+
+21. There is no need to rerun Angular applications. But it is advisable to save with Ctrl + S.
+
+22. The name app in the files is our main root.
+
+23. This app is in root so it has this config file and routes file.
+
+24. The way variables are created in Angular is different.
+
+25. We have to install Bootstrap to our Angular project.
+
+26. angular.json contains all the dependencies of the Angular application.
+
+27. To add the Bootstrap to Angular project:
+	i. Install the Bootstrap: npm install bootstrap
+	ii. Add this to styles:[] in angular.json: "node_modules/bootstrap/dist/css/bootstrap.min.css"
+
+28. After any change in the angular.json, save( Ctrl + S ) those changes.
+
+29. Current versions of Angular projects do not have "scripts":[] in angular.json. So we have to add it manually.
+	Why "scripts" Is Missing
+	Angular only creates "scripts" when needed.
+	Since most modern Angular apps:
+		use ES modules
+		avoid global JS
+	Angular keeps config minimal.
+	So adding it manually is expected practice.
+
+30. To create a component: Right click the component directory -> Open In -> Terminal -> ng g c header (ng generate component <component-name>).
+
+31. Component is consisted with 4 parts. Actually we do not want header.spec.ts . It is a test file. We can delete it.
+
+32. header.ts is the controller.
+
+33. Even if you use Bootstrap, Angular has its own one called materials. It is called Angular materials.
+
+34. Angular materials is similar to Bootstrap.
+
+35. Angular Material has a library of buttons and other things that are designed in a specific way. We can take them and use them. This means that we do not need to type HTML alone.
+
+36. Angular 21 does NOT use AppModule by default. You import Material modules inside components.
+
+37. Do NOT add any animation provider manually. Angular now enables animations automatically through environment providers when Angular Material is installed via: ng add @angular/material. If Angular Material is installed with ng add, you do NOT manually configure animations anymore.
+
+38. If standalone is missing, Angular treats it as non-standalone, which causes Material components to be unavailable.
+
+39. We can use the toggle switch to check whether Angular Material is working in our project or not.
+
+40. When adding a component, the first thing you should look at is the API. The module under the component's API must be present.
+
+41. To Kill the Port:
+	Open up cmd.exe (note: you may need to run it as an administrator, but this isn't always necessary), then run the below 		command:
+			netstat -ano | findstr :<PORT>
+			(Replace <PORT> with the port number you want, but keep the colon)
+	The last column is the PID (process identifier). Locate the PID of the process that's using the port you want.
+	Next, run the following command:
+		taskkill /PID <PID> /F
+		(No colon this time)
+
+42. After installing Angular Material, build it again. That means run the command: ng serve.
+
+43. The toggleMenu() method is located in the controller header.ts.
+
+44. To create a service: Right click the service directory -> Open In -> Terminal -> ng g s menu (ng generate service <service-name>).
+
+45. Service is consisted with 2 parts. Actually we do not want menu.spec.ts . It is a test file. We can delete it.
