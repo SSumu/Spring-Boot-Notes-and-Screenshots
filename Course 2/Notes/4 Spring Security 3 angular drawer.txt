@@ -117,3 +117,7 @@
 44. To create a service: Right click the service directory -> Open In -> Terminal -> ng g s menu (ng generate service <service-name>).
 
 45. Service is consisted with 2 parts. Actually we do not want menu.spec.ts . It is a test file. We can delete it.
+
+46. Note that modern Angular (v17+) uses functional app.routes.ts instead.
+
+47. The drawer button is lightgray. If the active is in the link in the /cars section of content.html, in the <mat-list-item> section, [routerLinkActive]="['active']", that is, if it is in the link /cars, that is, if it is in localhost:4200/cars, then the cars button will be lightgray. There is a css written for active.
