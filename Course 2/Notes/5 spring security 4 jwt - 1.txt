@@ -1,0 +1,4 @@
+1. We can use DAO instead of Repo. DAO means Data Access Object.
+2. User and Role Mapping:-
+	A User can have one or more roles. There can be people who are both Admin and User. A role can be held by several users. There can be several Admins. Then there is a Many-to-Many mapping here.
+3. In a Many-to-Many mapping, an associate entity is created.
